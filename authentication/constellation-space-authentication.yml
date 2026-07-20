@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.constellation.space/connect/api-tokens
+docs: https://docs.constellation.space/connect/api-tokens
+summary:
+  types:
+  - http
+  http_schemes:
+  - bearer
+  api_key_in: []
+  oauth2_flows: []
+  notes: >-
+    Static, scoped API tokens presented as HTTP bearer credentials. Not an
+    OAuth2 authorization-code flow — tokens are minted in the console, not
+    granted via an authorization server. Scopes are attached to the token at
+    creation time.
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  header: Authorization
+  format: 'Authorization: Bearer <token>'
+  token_prefixes:
+    production: cos_live_
+    non_production: cos_dev_
+  env_var: CONSTELLATION_API_TOKEN
+  lifecycle:
+    created_in: Settings -> API (console)
+    shown_once: true
+    revocable: instant (Settings -> API); in-flight requests fail immediately after revocation propagates
+    validated: on every API request
+  scopes:
+  - topology:read
+  - telemetry:write
+  - predictions:run
+  sources:
+  - openapi/constellation-space-openapi.yml
+example: |
+  export CONSTELLATION_API_TOKEN=cos_live_your_token_here
+  curl -sS -H "Authorization: Bearer $CONSTELLATION_API_TOKEN" \
+    "https://api.constellation.space/api/v1/topology/"
