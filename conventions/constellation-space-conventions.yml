@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.constellation.space/
+docs:
+- https://docs.constellation.space/api/overview
+- https://docs.constellation.space/connect/api-tokens
+- https://docs.constellation.space/reference/urls-and-hosts
+authentication:
+  style: bearer-token
+  header: 'Authorization: Bearer <token>'
+  token_prefixes: [cos_live_, cos_dev_]
+  scoped: true
+  see: authentication/constellation-space-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1
+environments:
+  scheme: host-per-environment
+  hosts:
+    production: https://api.constellation.space
+    staging: https://api-staging.constellation.space
+    development: https://api-dev.constellation.space
+  note: >-
+    Tokens and integration bundles from Settings -> API resolve endpoints for
+    the console origin you are signed into. cos_live_ tokens target production;
+    cos_dev_ tokens target non-production.
+  see: sandbox/constellation-space-sandbox.yml
+telemetry_ingest:
+  format: line protocol
+  transport: POST /api/v1/telemetry/ingest
+  note: Ground/fleet agents post metrics aligned to the fleet topology graph.
+idempotency:
+  documented: false
+  note: >-
+    No idempotency-key header/parameter is documented in the public developer
+    docs as of this pass. Not asserting idempotency support.
+pagination:
+  documented: false
+error_handling:
+  auth_failures: 401 on missing/invalid/revoked token (validated on every request)
+  scope_failures: 403 when the token lacks the required scope
+  envelope: not published in public docs
+  see: errors/constellation-space-problem-types.yml
+transport_security:
+  tls: TLS 1.2 or newer between ground agents, APIs, and console
+  see: security/constellation-space-domain-security.yml
+rate_limiting:
+  documented: false

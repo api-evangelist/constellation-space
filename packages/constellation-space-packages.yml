@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.constellation.space/connect/fleet-agent
+note: >-
+  No first-party client SDK was found on npm, PyPI, Maven Central, NuGet,
+  pkg.go.dev, RubyGems, Packagist, or crates.io as of this pass. Constellation
+  distributes a first-party fleet agent (Node script) via an install script from
+  the console; it is catalogued here and its command surface lives in
+  cli/constellation-space-cli.yml. No SDKs pointer is emitted because this is a
+  CLI agent, not a language client library.
+packages:
+- language: javascript
+  registry: script
+  name: fleet-agent.mjs
+  url: https://console.constellation.space/app/integrations/install.sh
+  install: 'curl -fsSL "https://console.constellation.space/app/integrations/install.sh" | bash'
+  official: true
+  kind: cli-agent
+registries_checked:
+- npm
+- pypi
+- maven-central
+- nuget
+- pkg.go.dev
+- rubygems
+- packagist
+- crates.io

@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.constellation.space/architecture/overview
+docs:
+- https://docs.constellation.space/architecture/overview
+- https://docs.constellation.space/connect/overview
+note: >-
+  Entity graph derived from the public architecture/connect docs. Constellation
+  publishes no machine-readable object reference, so field-level schemas are not
+  captured — only the documented entities and their relationships.
+entities:
+- name: Node
+  description: A node in the fleet graph (e.g. a satellite or ground site).
+- name: Link
+  description: A link between two nodes, carrying a health score and routing state.
+- name: TelemetryMetric
+  description: A ground telemetry metric ingested via line protocol, aligned to the fleet graph.
+- name: Prediction
+  description: An ML link forecast over live fleet context (SNR/link fade, traffic, weather, jamming, conjunction).
+- name: GatewayPass
+  description: A gateway pass surfaced in the console for scheduling/routing.
+relationships:
+- from: Link
+  type: belongs_to
+  to: Node
+  via: nodes (source/target)
+  cardinality: a link connects two nodes
+- from: TelemetryMetric
+  type: belongs_to
+  to: Node
+  via: fleet-graph alignment
+- from: TelemetryMetric
+  type: belongs_to
+  to: Link
+  via: fleet-graph alignment
+- from: Prediction
+  type: belongs_to
+  to: Link
+  via: node/link/time context
+- from: Prediction
+  type: belongs_to
+  to: Node
+  via: node/link/time context

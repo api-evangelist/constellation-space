@@ -1,0 +1,33 @@
+# Constellation Space (ConstellationOS)
+
+> ConstellationOS is the ML-native operations platform for satellite fleets (Y Combinator, Seattle). Operators connect ground telemetry through one API and schema, run ML link forecasts on live fleet context (SNR and link fade, traffic, weather, jamming, conjunction), and act under operator policy with automated routing, stream isolation, and failover. The HTTP API is authenticated with scoped bearer tokens (cos_live_ / cos_dev_).
+
+## API
+- [ConstellationOS API base](https://api.constellation.space): production API host (staging: api-staging, dev: api-dev)
+- [GET /api/v1/topology/](https://docs.constellation.space/api/topology): read fleet topology (scope topology:read)
+- [POST /api/v1/telemetry/ingest](https://docs.constellation.space/api/telemetry): ingest telemetry (scope telemetry:write)
+- [POST /api/v1/predictions/](https://docs.constellation.space/api/predictions): run ML predictions (scope predictions:run)
+
+## Specs
+- [OpenAPI (reconstructed from docs)](https://raw.githubusercontent.com/api-evangelist/constellation-space/refs/heads/main/openapi/constellation-space-openapi.yml)
+
+## Docs
+- [Developer docs](https://docs.constellation.space)
+- [Quick start](https://docs.constellation.space/getting-started/quick-start)
+- [API tokens & scopes](https://docs.constellation.space/connect/api-tokens)
+- [Environments & hosts](https://docs.constellation.space/reference/urls-and-hosts)
+- [Fleet agent](https://docs.constellation.space/connect/fleet-agent)
+- [Plans & billing](https://docs.constellation.space/getting-started/plans-and-billing)
+- [Security](https://constellation.space/security)
+
+## Artifacts
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/constellation-space/refs/heads/main/authentication/constellation-space-authentication.yml)
+- [Scopes](https://raw.githubusercontent.com/api-evangelist/constellation-space/refs/heads/main/scopes/constellation-space-scopes.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/constellation-space/refs/heads/main/conventions/constellation-space-conventions.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/constellation-space/refs/heads/main/data-model/constellation-space-data-model.yml)
+- [Agentic access](https://raw.githubusercontent.com/api-evangelist/constellation-space/refs/heads/main/agentic-access/constellation-space-agentic-access.yml)
+
+## Company
+- [Website](https://constellation.space)
+- [Console](https://console.constellation.space/app/)
+- [Status](https://status.constellation.space/)

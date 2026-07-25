@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/constellation-space-openapi.yml
+docs: https://docs.constellation.space/connect/api-tokens
+format: unpublished
+note: >-
+  Constellation does not publish a machine-readable error envelope or an error
+  reference page in its public docs. The entries below are derived from
+  documented authentication/authorization behavior and the reconstructed
+  OpenAPI responses; HTTP statuses only, no invented error bodies.
+problems:
+- status: 401
+  title: Unauthorized
+  cause: Missing, invalid, or revoked API token. Tokens are validated on every request; in-flight requests fail immediately after a token is revoked.
+  documented: true
+  source: https://docs.constellation.space/connect/api-tokens
+  operations: [getTopology, ingestTelemetry, runPredictions]
+- status: 403
+  title: Forbidden
+  cause: The token does not carry the scope required for the operation (topology:read, telemetry:write, or predictions:run).
+  documented: derived
+  operations: [getTopology, ingestTelemetry, runPredictions]

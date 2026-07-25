@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.constellation.space/getting-started/environments
+docs:
+- https://docs.constellation.space/getting-started/environments
+- https://docs.constellation.space/reference/urls-and-hosts
+- https://docs.constellation.space/deploy/local-development
+test_vs_live:
+  scheme: token-prefix + host-per-environment
+  live_token_prefix: cos_live_
+  test_token_prefix: cos_dev_
+  note: >-
+    Non-production (cos_dev_) tokens target the development/staging API hosts;
+    production (cos_live_) tokens target api.constellation.space. Tokens resolve
+    endpoints for the console origin you are signed into.
+environments:
+- name: production
+  api: https://api.constellation.space
+  console: https://console.constellation.space/app/
+- name: staging
+  api: https://api-staging.constellation.space
+- name: development
+  api: https://api-dev.constellation.space
+  console: https://dev-console.constellation.space/app/
+local_development:
+  console: http://localhost:5174/app/
+  docs: http://localhost:3001
+  os_api: http://localhost:8000
+  source: https://docs.constellation.space/reference/urls-and-hosts
+pilot:
+  model: >-
+    New deployments begin with a 30-day shadow pilot on a single live stream,
+    running in parallel with passive monitoring until ingestion and forecast
+    lead time meet agreed targets, then transition to production.
+  source: https://constellation.space/company
+test_values:
+  note: >-
+    Constellation does not publish fixed magic test identifiers or fixture
+    values in its public docs; test isolation is achieved via cos_dev_ tokens
+    and the non-production API hosts above. No test values are invented here.

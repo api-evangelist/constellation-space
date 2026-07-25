@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: constellation.space
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  7 23:59:59 2026 GMT
+  hsts: false
+- host: docs.constellation.space
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 12 23:59:59 2026 GMT
+  hsts: false
+- host: api.constellation.space
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  8 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: constellation.space
+  dnssec: false
+  caa:
+  - 0 issue "amazontrust.com"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog"
+  - 0 issue "amazon.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

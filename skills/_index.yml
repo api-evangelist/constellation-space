@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/constellation-space-openapi.yml
+note: >-
+  Packaged Agent Skills grounded in the documented ConstellationOS operations.
+  No provider-published skills/AGENTS.md was found; these are generated from the
+  public docs + repo artifacts.
+skills:
+- file: constellation-space-read-topology-and-predict.md
+  name: Read fleet topology and run a link forecast
+  api: openapi/constellation-space-openapi.yml
+  operations: [getTopology, runPredictions]
+- file: constellation-space-ingest-telemetry.md
+  name: Ingest ground telemetry
+  api: openapi/constellation-space-openapi.yml
+  operations: [ingestTelemetry]

@@ -1,8 +1,28 @@
 aid: constellation-space
 name: Constellation Space
-description: Constellation Space is a company surfaced as a portfolio company of y-combinator and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Constellation Space Corp (ConstellationOS) is the ML-native operations
+  platform for satellite fleets, founded in 2025 in Seattle and backed by Y
+  Combinator. Operators connect ground telemetry through one API and one schema,
+  run machine-learning link forecasts on live fleet context (SNR and link fade,
+  traffic, weather, jamming, and conjunction), and act under operator policy with
+  automated routing, stream isolation, and failover. The ConstellationOS HTTP
+  API exposes fleet topology reads, telemetry ingestion, and predictions, secured
+  with scoped bearer tokens, alongside a web console, a fleet agent CLI, and a
+  public status page.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://constellation.space/og-image.png
 url: https://raw.githubusercontent.com/api-evangelist/constellation-space/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,12 +32,127 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Satellites
+- Space
+- Telemetry
+- Machine Learning
+- Fleet Operations
+- Ground Segment
+- Predictions
+apis:
+- aid: constellation-space:constellation-space-predictions-api
+  name: Constellation Space Predictions API
+  description: Run ML link forecasts on live fleet context.
+  humanURL: https://docs.constellation.space
+  baseURL: https://api.constellation.space
+  tags:
+  - Predictions
+  properties:
+  - type: OpenAPI
+    url: openapi/constellation-space-predictions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.constellation.space
+  - type: APIReference
+    url: https://docs.constellation.space/api/overview
+- aid: constellation-space:constellation-space-telemetry-api
+  name: Constellation Space Telemetry API
+  description: Ingest ground telemetry metrics aligned to the fleet graph.
+  humanURL: https://docs.constellation.space
+  baseURL: https://api.constellation.space
+  tags:
+  - Telemetry
+  properties:
+  - type: OpenAPI
+    url: openapi/constellation-space-telemetry-api-openapi.yml
+  - type: Documentation
+    url: https://docs.constellation.space
+  - type: APIReference
+    url: https://docs.constellation.space/api/overview
+- aid: constellation-space:constellation-space-topology-api
+  name: Constellation Space Topology API
+  description: Read the fleet graph — nodes, links, health scores, and routing state.
+  humanURL: https://docs.constellation.space
+  baseURL: https://api.constellation.space
+  tags:
+  - Topology
+  properties:
+  - type: OpenAPI
+    url: openapi/constellation-space-topology-api-openapi.yml
+  - type: Documentation
+    url: https://docs.constellation.space
+  - type: APIReference
+    url: https://docs.constellation.space/api/overview
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: AgenticAccess
+  url: agentic-access/constellation-space-agentic-access.yml
+- type: DomainSecurity
+  url: security/constellation-space-domain-security.yml
+- url: https://constellation.space
+  type: Website
+- url: https://docs.constellation.space
+  type: DeveloperPortal
+- url: https://docs.constellation.space
+  type: Documentation
+- url: https://docs.constellation.space/api/overview
+  type: APIReference
+- url: https://docs.constellation.space/getting-started/quick-start
+  type: GettingStarted
+- url: https://console.constellation.space/app/
+  type: SignUp
+- url: https://console.constellation.space/app/
+  type: Login
+- url: https://docs.constellation.space/getting-started/plans-and-billing
+  type: Pricing
+- url: https://status.constellation.space/
+  type: StatusPage
+- url: mailto:contact@constellation.space
+  type: Support
+- url: https://www.linkedin.com/company/constellationspace/
+  type: LinkedIn
+- url: https://x.com/constspace
+  type: X (Twitter)
+- url: authentication/constellation-space-authentication.yml
+  type: Authentication
+- url: scopes/constellation-space-scopes.yml
+  type: OAuthScopes
+- url: conventions/constellation-space-conventions.yml
+  type: Conventions
+- url: lifecycle/constellation-space-lifecycle.yml
+  type: Lifecycle
+- url: errors/constellation-space-problem-types.yml
+  type: ErrorCatalog
+- url: data-model/constellation-space-data-model.yml
+  type: DataModel
+- url: mcp/constellation-space-mcp.yml
+  type: MCPServer
+- url: sandbox/constellation-space-sandbox.yml
+  type: Sandbox
+- url: cli/constellation-space-cli.yml
+  type: CLI
+- url: packages/constellation-space-packages.yml
+  type: Packages
+- url: llms/constellation-space-llms.txt
+  type: LLMsTxt
+- url: conformance/constellation-space-conformance.yml
+  type: Conformance
+- url: skills/_index.yml
+  type: AgentSkill
+- url: security/constellation-space-vulnerability-disclosure.yml
+  type: VulnerabilityDisclosure
+- url: https://constellation.space/security
+  type: Security
+- url: security/constellation-space-trust-center.yml
+  type: TrustCenter
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

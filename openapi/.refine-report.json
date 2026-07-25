@@ -1,0 +1,18 @@
+{
+  "provider": "constellation-space",
+  "sources": [
+    "constellation-space-predictions-api-openapi.yml",
+    "constellation-space-telemetry-api-openapi.yml",
+    "constellation-space-topology-api-openapi.yml"
+  ],
+  "outputs": [
+    "constellation-space-predictions-api-openapi.yml",
+    "constellation-space-telemetry-api-openapi.yml",
+    "constellation-space-topology-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

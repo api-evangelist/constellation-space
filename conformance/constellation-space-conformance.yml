@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/constellation-space-openapi.yml
+docs: https://constellation.space/security
+note: >-
+  Derived from the reconstructed OpenAPI and the public security page. No
+  published third-party certifications (SOC 2 / ISO 27001 / PCI / HIPAA /
+  FedRAMP) were found, so no Compliance pointer is emitted.
+standards:
+- id: oauth2
+  conforms: false
+  evidence: Auth is scoped static bearer tokens, not an OAuth2 authorization flow.
+- id: oidc
+  conforms: false
+- id: http-bearer-auth
+  conforms: true
+  evidence: Authorization Bearer token on every request (openapi securityScheme http/bearer).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json error envelope is published.
+- id: tls-1.2-plus
+  conforms: true
+  evidence: Docs state TLS 1.2 or newer in transit; live probe observed TLS 1.3.
+- id: rbac
+  conforms: true
+  evidence: Security page documents role-based access in the console and API.
+- id: audit-logging
+  conforms: true
+  evidence: Security page states administrative actions and API calls are logged for audit.

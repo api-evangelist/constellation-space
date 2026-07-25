@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for ConstellationOS API
+  version: 1.0.0
+extends: openapi/constellation-space-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provenance: searched-from-docs
+    x-apievangelist-notes: >-
+      Operations, scopes, and auth transcribed from public docs
+      (docs.constellation.space); request/response bodies not published by the provider.
+- target: $.info
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/constellation-space-authentication.yml
+      scopes: scopes/constellation-space-scopes.yml
+      conventions: conventions/constellation-space-conventions.yml
+      errors: errors/constellation-space-problem-types.yml
+      data_model: data-model/constellation-space-data-model.yml
+      agentic_access: agentic-access/constellation-space-agentic-access.yml
+- target: $.paths['/api/v1/telemetry/ingest'].post
+  update:
+    x-request-format: line protocol (fleet agent)

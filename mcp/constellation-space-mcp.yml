@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/constellation-space-openapi.yml
+note: >-
+  No official hosted/remote MCP server was found for Constellation Space (no
+  entry on the MCP registry, npm @modelcontextprotocol, or the docs) as of this
+  pass. The tools below are a candidate surface derived one-per-operation from
+  the documented ConstellationOS API, for a future MCP server.
+server:
+  name: constellation-space
+  transport: http
+tools:
+- name: get_topology
+  description: Read a fleet topology snapshot (nodes, links, health scores, routing state).
+  source_operation: openapi/constellation-space-openapi.yml#getTopology
+  scope: topology:read
+- name: ingest_telemetry
+  description: Ingest ground telemetry metrics aligned to the fleet graph.
+  source_operation: openapi/constellation-space-openapi.yml#ingestTelemetry
+  scope: telemetry:write
+- name: run_predictions
+  description: Run ML link forecasts over live fleet context.
+  source_operation: openapi/constellation-space-openapi.yml#runPredictions
+  scope: predictions:run

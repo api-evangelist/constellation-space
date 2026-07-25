@@ -1,0 +1,64 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/constellation-space-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 3
+  by_action_class:
+    connected: 1
+    acting: 2
+  by_consequence:
+    read: 1
+    write: 2
+  human_in_the_loop_required: 0
+operations:
+- path: /api/v1/topology/
+  method: get
+  operationId: getTopology
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - topology:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/telemetry/ingest
+  method: post
+  operationId: ingestTelemetry
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - telemetry:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/predictions/
+  method: post
+  operationId: runPredictions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - predictions:run
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required

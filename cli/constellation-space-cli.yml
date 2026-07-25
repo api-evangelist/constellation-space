@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.constellation.space/connect/fleet-agent
+docs: https://docs.constellation.space/connect/fleet-agent
+name: fleet-agent
+description: >-
+  The Constellation fleet agent (fleet-agent.mjs) runs on gateways and ground
+  sites to pull topology, push telemetry, and share configuration with ground
+  software. Distributed as a Node script installed under ~/.constellation.
+install:
+- method: script
+  command: |
+    curl -fsSL "https://console.constellation.space/app/integrations/install.sh" | bash -s -- \
+      --script-url "https://console.constellation.space/app/integrations/install.sh"
+  note: Installs fleet-agent.mjs into ~/.constellation/ (override with CONSTELLATION_CONFIG_DIR).
+auth:
+  env_var: CONSTELLATION_API_TOKEN
+  example: export CONSTELLATION_API_TOKEN=cos_live_your_token_here
+env:
+- name: CONSTELLATION_API_TOKEN
+  purpose: Required authentication token.
+- name: CONSTELLATION_CONFIG_DIR
+  purpose: Optional config directory override (default ~/.constellation).
+commands:
+- command: configure
+  usage: node ~/.constellation/fleet-agent.mjs configure --config-dir ~/.constellation
+  description: Generates config.toml with API endpoints and telemetry routing for your console environment.
+- command: topology pull
+  usage: topology pull --out topology.json
+  description: Retrieves a fleet graph snapshot (calls GET /api/v1/topology/).
+  operation: getTopology
+- command: telemetry post
+  usage: telemetry post --file metrics.lp
+  description: Sends line-protocol metrics via stdin or --file (calls POST /api/v1/telemetry/ingest).
+  operation: ingestTelemetry

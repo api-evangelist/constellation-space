@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: ConstellationOS API
+  version: v1
+  summary: ML-native operations API for satellite fleets — connect telemetry, read fleet topology, run link forecasts.
+  description: >-
+    The ConstellationOS HTTP API lets satellite fleet operators ingest ground
+    telemetry through a single schema, read the live fleet topology graph, and
+    run ML link forecasts on live fleet context. This description is
+    reconstructed by the API Evangelist enrichment pipeline from Constellation
+    Space's public developer documentation (https://docs.constellation.space);
+    it captures only the operations, scopes, and authentication that the
+    provider documents publicly. Request/response bodies are intentionally left
+    open where the provider does not publish a machine-readable schema — this is
+    a discovery artifact, not the provider's authoritative OpenAPI.
+  contact:
+    name: Constellation Space Corp
+    email: contact@constellation.space
+    url: https://docs.constellation.space
+  x-apievangelist-provenance:
+    method: searched
+    source: https://docs.constellation.space/connect/api-tokens
+    note: Reconstructed from public docs; operations + scopes documented, bodies not published.
+servers:
+  - url: https://api.constellation.space
+    description: Production
+  - url: https://api-staging.constellation.space
+    description: Staging
+  - url: https://api-dev.constellation.space
+    description: Development
+security:
+  - bearerAuth: []
+tags:
+  - name: Topology
+    description: Read the fleet graph — nodes, links, health scores, and routing state.
+  - name: Telemetry
+    description: Ingest ground telemetry metrics aligned to the fleet graph.
+  - name: Predictions
+    description: Run ML link forecasts on live fleet context.
+paths:
+  /api/v1/topology/:
+    get:
+      operationId: getTopology
+      summary: Read fleet topology snapshot
+      description: >-
+        Retrieve a snapshot of the fleet graph — nodes and links with health
+        scores and routing state. Requires the topology:read token scope.
+      tags:
+        - Topology
+      security:
+        - bearerAuth: [topology:read]
+      responses:
+        '200':
+          description: A fleet topology snapshot (nodes, links, health scores, routing state).
+        '401':
+          description: Missing, invalid, or revoked API token. Tokens are validated on every request.
+        '403':
+          description: Token lacks the required topology:read scope.
+  /api/v1/telemetry/ingest:
+    post:
+      operationId: ingestTelemetry
+      summary: Ingest ground telemetry
+      description: >-
+        Ingest telemetry metrics from ground agents/edge collectors, aligned to
+        the fleet graph. Requires the telemetry:write token scope. The fleet
+        agent posts metrics in line protocol.
+      tags:
+        - Telemetry
+      security:
+        - bearerAuth: [telemetry:write]
+      responses:
+        '200':
+          description: Telemetry accepted for ingestion.
+        '401':
+          description: Missing, invalid, or revoked API token.
+        '403':
+          description: Token lacks the required telemetry:write scope.
+  /api/v1/predictions/:
+    post:
+      operationId: runPredictions
+      summary: Run ML link forecasts
+      description: >-
+        Run ML predictions over live fleet context. The same models power the
+        console assistant and this Predictions API — SNR and link fade, traffic,
+        weather, jamming, and conjunction. Requires the predictions:run token scope.
+      tags:
+        - Predictions
+      security:
+        - bearerAuth: [predictions:run]
+      responses:
+        '200':
+          description: Prediction results for the requested node/link/time context.
+        '401':
+          description: Missing, invalid, or revoked API token.
+        '403':
+          description: Token lacks the required predictions:run scope.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        API token issued from the console (Settings -> API), sent as
+        "Authorization: Bearer <token>". Production tokens are prefixed
+        cos_live_ and non-production tokens cos_dev_. Tokens are scoped, shown
+        once at creation, and can be revoked instantly.
+      x-token-prefixes:
+        production: cos_live_
+        non_production: cos_dev_
+      x-scopes:
+        topology:read: Read the fleet topology graph.
+        telemetry:write: Ingest telemetry metrics.
+        predictions:run: Run ML predictions.

@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.constellation.space/connect/api-tokens
+docs: https://docs.constellation.space/connect/api-tokens
+note: >-
+  ConstellationOS uses scoped static bearer tokens (not an OAuth2 authorization
+  flow). Scopes are selected when a token is created in the console and gate the
+  API operations below.
+schemes:
+- name: bearerAuth
+  type: token-scopes
+  source: openapi/constellation-space-openapi.yml
+scopes:
+- scope: topology:read
+  description: Read the fleet topology graph. Enables GET /api/v1/topology/.
+  operations:
+  - getTopology
+  sources:
+  - openapi/constellation-space-openapi.yml
+- scope: telemetry:write
+  description: Ingest telemetry metrics. Enables POST /api/v1/telemetry/ingest.
+  operations:
+  - ingestTelemetry
+  sources:
+  - openapi/constellation-space-openapi.yml
+- scope: predictions:run
+  description: Run ML predictions. Enables POST /api/v1/predictions/.
+  operations:
+  - runPredictions
+  sources:
+  - openapi/constellation-space-openapi.yml
