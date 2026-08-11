@@ -91,6 +91,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/constellation-space-openapi-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/constellation-space-agentic-access.yml
 - type: DomainSecurity
