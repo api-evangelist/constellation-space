@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ConstellationOS Predictions Topology API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Topology",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read fleet topology snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.constellation.space/api/v1/topology/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a snapshot of the fleet graph — nodes and links with health scores and routing state. Requires the topology:read token scope."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

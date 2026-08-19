@@ -1,0 +1,207 @@
+{
+  "item": [
+    {
+      "id": "8ee518bd-5686-49f1-a2cf-08086b2b3582",
+      "name": "Predictions",
+      "description": {
+        "content": "Run ML link forecasts on live fleet context.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b2490b5-840a-467e-a551-bc86523fb17b",
+          "name": "Run ML link forecasts",
+          "request": {
+            "name": "Run ML link forecasts",
+            "description": {
+              "content": "Run ML predictions over live fleet context. The same models power the console assistant and this Predictions API — SNR and link fade, traffic, weather, jamming, and conjunction. Requires the predictions:run token scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "predictions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "33c37290-54cd-4ed1-9e3d-dc2420640d53",
+              "name": "Prediction results for the requested node/link/time context.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "predictions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "726fc7f0-96f3-4249-9197-3daff3801365",
+              "name": "Missing, invalid, or revoked API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "predictions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7afb3fda-027d-4f0a-ab26-fbede99e1df9",
+              "name": "Token lacks the required predictions:run scope.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "predictions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.constellation.space",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d400c966-fc74-444e-bbea-e3e3b0cc09a9",
+    "name": "ConstellationOS Predictions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ConstellationOS HTTP API lets satellite fleet operators ingest ground telemetry through a single schema, read the live fleet topology graph, and run ML link forecasts on live fleet context. This description is reconstructed by the API Evangelist enrichment pipeline from Constellation Space's public developer documentation (https://docs.constellation.space); it captures only the operations, scopes, and authentication that the provider documents publicly. Request/response bodies are intentionally left open where the provider does not publish a machine-readable schema — this is a discovery artifact, not the provider's authoritative OpenAPI.\n\nContact Support:\n Name: Constellation Space Corp\n Email: contact@constellation.space",
+      "type": "text/plain"
+    }
+  }
+}

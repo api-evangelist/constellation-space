@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ConstellationOS Predictions API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Predictions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run ML link forecasts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.constellation.space/api/v1/predictions/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Run ML predictions over live fleet context. The same models power the console assistant and this Predictions API — SNR and link fade, traffic, weather, jamming, and conjunction. Requires the predictions:run token scope."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

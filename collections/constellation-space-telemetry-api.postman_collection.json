@@ -1,0 +1,207 @@
+{
+  "item": [
+    {
+      "id": "be630d90-48fe-469f-9c50-46d26da13ab9",
+      "name": "Telemetry",
+      "description": {
+        "content": "Ingest ground telemetry metrics aligned to the fleet graph.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23a24abb-76ff-45e7-a872-28af0e051db8",
+          "name": "Ingest ground telemetry",
+          "request": {
+            "name": "Ingest ground telemetry",
+            "description": {
+              "content": "Ingest telemetry metrics from ground agents/edge collectors, aligned to the fleet graph. Requires the telemetry:write token scope. The fleet agent posts metrics in line protocol.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "telemetry",
+                "ingest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd1d6356-450a-4b8d-bfd7-3e8aec00b23a",
+              "name": "Telemetry accepted for ingestion.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "telemetry",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bee237df-c9bb-4a88-87e7-631192db352d",
+              "name": "Missing, invalid, or revoked API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "telemetry",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55766580-f0fb-44ca-ad36-f47d0be2f91a",
+              "name": "Token lacks the required telemetry:write scope.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "telemetry",
+                    "ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.constellation.space",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e6f0bced-f22d-4a71-8e3f-7cb7f8bbc384",
+    "name": "ConstellationOS Predictions Telemetry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ConstellationOS HTTP API lets satellite fleet operators ingest ground telemetry through a single schema, read the live fleet topology graph, and run ML link forecasts on live fleet context. This description is reconstructed by the API Evangelist enrichment pipeline from Constellation Space's public developer documentation (https://docs.constellation.space); it captures only the operations, scopes, and authentication that the provider documents publicly. Request/response bodies are intentionally left open where the provider does not publish a machine-readable schema — this is a discovery artifact, not the provider's authoritative OpenAPI.\n\nContact Support:\n Name: Constellation Space Corp\n Email: contact@constellation.space",
+      "type": "text/plain"
+    }
+  }
+}

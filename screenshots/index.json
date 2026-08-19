@@ -6,5 +6,14 @@
     "source_type": "DeveloperPortal",
     "file": "constellation-space-2026-07-25T210309.png",
     "bytes": 42212
+  },
+  {
+    "repo": "constellation-space",
+    "captured_at": "2026-08-17T083213",
+    "source_url": "https://constellation.space",
+    "source_type": "root-domain",
+    "file": "constellation-space-2026-08-17T083213.png",
+    "bytes": 249117,
+    "capture": "playwright-local"
   }
 ]

@@ -2,11 +2,9 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/constellation-space-openapi.yml
-note: >-
-  No official hosted/remote MCP server was found for Constellation Space (no
-  entry on the MCP registry, npm @modelcontextprotocol, or the docs) as of this
-  pass. The tools below are a candidate surface derived one-per-operation from
-  the documented ConstellationOS API, for a future MCP server.
+note: No official hosted/remote MCP server was found for Constellation Space (no entry on the MCP registry,
+  npm @modelcontextprotocol, or the docs) as of this pass. The tools below are a candidate surface derived
+  one-per-operation from the documented ConstellationOS API, for a future MCP server.
 server:
   name: constellation-space
   transport: http
@@ -23,3 +21,9 @@ tools:
   description: Run ML link forecasts over live fleet context.
   source_operation: openapi/constellation-space-openapi.yml#runPredictions
   scope: predictions:run
+deployment:
+  mode: none
+  verified: derived
+  tools: 3
+  checked: '2026-08-12'
+  source: catalog MCP census

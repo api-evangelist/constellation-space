@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ConstellationOS Predictions Telemetry API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Telemetry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest ground telemetry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.constellation.space/api/v1/telemetry/ingest",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Ingest telemetry metrics from ground agents/edge collectors, aligned to the fleet graph. Requires the telemetry:write token scope. The fleet agent posts metrics in line protocol."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

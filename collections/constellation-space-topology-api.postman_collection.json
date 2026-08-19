@@ -1,0 +1,207 @@
+{
+  "item": [
+    {
+      "id": "3dfee796-f05d-4815-9213-91dd3616c7a6",
+      "name": "Topology",
+      "description": {
+        "content": "Read the fleet graph — nodes, links, health scores, and routing state.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47b88f80-4c26-4532-aafb-0a0e47006c70",
+          "name": "Read fleet topology snapshot",
+          "request": {
+            "name": "Read fleet topology snapshot",
+            "description": {
+              "content": "Retrieve a snapshot of the fleet graph — nodes and links with health scores and routing state. Requires the topology:read token scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "topology",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "397aab9c-0d65-4a53-8dfd-a0af001ec12e",
+              "name": "A fleet topology snapshot (nodes, links, health scores, routing state).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "topology",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "464f8e76-507f-42f9-ad7e-e21c3ff7e8b7",
+              "name": "Missing, invalid, or revoked API token. Tokens are validated on every request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "topology",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14e5fa35-f4f2-42f6-96f0-4a5960a0081b",
+              "name": "Token lacks the required topology:read scope.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "topology",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.constellation.space",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e54030da-ac45-4882-8a25-31ff4092add4",
+    "name": "ConstellationOS Predictions Topology API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ConstellationOS HTTP API lets satellite fleet operators ingest ground telemetry through a single schema, read the live fleet topology graph, and run ML link forecasts on live fleet context. This description is reconstructed by the API Evangelist enrichment pipeline from Constellation Space's public developer documentation (https://docs.constellation.space); it captures only the operations, scopes, and authentication that the provider documents publicly. Request/response bodies are intentionally left open where the provider does not publish a machine-readable schema — this is a discovery artifact, not the provider's authoritative OpenAPI.\n\nContact Support:\n Name: Constellation Space Corp\n Email: contact@constellation.space",
+      "type": "text/plain"
+    }
+  }
+}
