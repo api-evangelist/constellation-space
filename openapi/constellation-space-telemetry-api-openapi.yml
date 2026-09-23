@@ -1,9 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ConstellationOS Predictions Telemetry API
+  title: ConstellationOS Telemetry API
   version: v1
   summary: ML-native operations API for satellite fleets — connect telemetry, read fleet topology, run link forecasts.
-  description: The ConstellationOS HTTP API lets satellite fleet operators ingest ground telemetry through a single schema, read the live fleet topology graph, and run ML link forecasts on live fleet context. This description is reconstructed by the API Evangelist enrichment pipeline from Constellation Space's public developer documentation (https://docs.constellation.space); it captures only the operations, scopes, and authentication that the provider documents publicly. Request/response bodies are intentionally left open where the provider does not publish a machine-readable schema — this is a discovery artifact, not the provider's authoritative OpenAPI.
+  description: The ConstellationOS HTTP API lets satellite fleet operators ingest ground telemetry through a single schema, read the live fleet topology graph, and run ML link forecasts on live fleet context.
   contact:
     name: Constellation Space Corp
     email: contact@constellation.space
