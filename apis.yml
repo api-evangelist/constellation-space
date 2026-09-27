@@ -48,12 +48,15 @@ x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-18'
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-24
 tags:
 - Company
 - Satellite
 - Space
 - Telemetry
-- Machine-Learning
+- Machine Learning
 - Fleet Operations
 - Ground Segment
 - Predictions
@@ -66,6 +69,7 @@ tags_raw:
 - Fleet Operations
 - Ground Segment
 - Predictions
+- Machine-Learning
 apis:
 - aid: constellation-space:constellation-space-predictions-api
   name: Constellation Space Predictions API
