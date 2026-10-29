@@ -64,6 +64,129 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Constellation Space is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Constellation Space Corp (ConstellationOS) is the ML-native operations platform for satellite fleets, founded in 2025 in Seattle and backed by Y Combinator. Operators connect ground telemetry through one API and one schema, run machine-learning link forecasts on live fleet context (SNR and link fade, traffic, weather, jamming, and conjunction), and act under operator policy with automated routing, stream isolation, and failover. The ConstellationOS HTTP API exposes fleet topology reads, telemetry ingestion, and predictions, secured with scoped bearer tokens, alongside a web console, a fleet agent CLI, and a public status page.
 
-Backed by: y-combinator
+**Areas:** Company · Satellite · Space · Telemetry · Machine Learning · Fleet Operations · Ground Segment · Predictions
+
+## Constellation Space on APIs.io
+
+Everything profiled for Constellation Space is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/constellation-space/](https://apis.io/providers/constellation-space/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Constellation Space Predictions API](https://apis.io/apis/constellation-space/constellation-space-predictions-api/) — Run ML link forecasts on live fleet context.
+- [Constellation Space Telemetry API](https://apis.io/apis/constellation-space/constellation-space-telemetry-api/) — Ingest ground telemetry metrics aligned to the fleet graph.
+- [Constellation Space Topology API](https://apis.io/apis/constellation-space/constellation-space-topology-api/) — Read the fleet graph — nodes, links, health scores, and routing state.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [constellation-space](https://apis.io/servers/constellation-space/constellation-space/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Constellation Space Agentic Access](https://apis.io/agentic-access/constellation-space/constellation-space-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [ConstellationOS Predictions API](https://apis.io/collections/constellation-space/open-constellation-space-predictions-api/)
+- [ConstellationOS Predictions Telemetry API](https://apis.io/collections/constellation-space/open-constellation-space-telemetry-api/)
+- [ConstellationOS Predictions Topology API](https://apis.io/collections/constellation-space/open-constellation-space-topology-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Constellation Space Openapi Overlay](https://apis.io/overlays/constellation-space/constellation-space-openapi-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Constellation Space Authentication](https://apis.io/security/constellation-space/constellation-space-authentication/)
+- [Constellation Space Domain Security](https://apis.io/security/constellation-space/constellation-space-domain-security/)
+- [Constellation Space Trust Center](https://apis.io/security/constellation-space/constellation-space-trust-center/)
+- [Constellation Space Vulnerability Disclosure](https://apis.io/security/constellation-space/constellation-space-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Constellation Space Scopes](https://apis.io/scopes/constellation-space/constellation-space-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://constellation.space)
+- [Documentation](https://docs.constellation.space)
+- [Getting started](https://docs.constellation.space/getting-started/quick-start)
+- [API reference](https://docs.constellation.space/api/overview)
+- [Pricing](https://docs.constellation.space/getting-started/plans-and-billing)
+- [Sign up](https://console.constellation.space/app/)
+- [Security](https://constellation.space/security)
+- [Status](https://status.constellation.space/)
+
+## API Evangelist rating
+
+**Kin Score 45.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 51.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 63.7 |
+| Access clarity | 31.6 |
+
+**Agent readiness 18.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 34.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/constellation-space/](https://apis.io/providers/constellation-space/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Constellation Space: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/constellation-space/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
